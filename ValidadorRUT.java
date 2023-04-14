@@ -13,9 +13,12 @@ public class ValidadorRUT {
     private static String digitoVerificador(int resta) {
         String digito="";
         int resultado=0;
-        if(11-resta==10||11-resta==11){
+        if(11-resta==10){
             digito="k";
-        }else{
+        } else if (11-resta==11) {
+            digito="0";
+
+        } else{
             digito+=resultado;
         }
 
