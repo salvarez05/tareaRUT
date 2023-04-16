@@ -30,11 +30,22 @@ public class ValidadorRUT {
         int digito=0;
         for (int i = 0; i < rutInvertido.length(); i++) {
             if (i <6 ) {
-                digito= (2+i)*Integer.parseInt(String.valueOf(rutInvertido.charAt(i)));
-                suma=suma +digito;
+                try {
+                    digito = (2 + i) * Integer.parseInt(String.valueOf(rutInvertido.charAt(i)));
+                    suma = suma + digito;
+                }catch (NumberFormatException e){
+                    System.out.println("El RUT no debe contener letras o signos");
+                    System.exit(1);
+                }
             }else {
-                digito= (2+i-6)*Integer.parseInt(String.valueOf(rutInvertido.charAt(i)));
-                suma=suma +digito;
+                try{
+                    digito= (2+i-6)*Integer.parseInt(String.valueOf(rutInvertido.charAt(i)));
+                    suma=suma +digito;
+                }catch (NumberFormatException e){
+                    System.out.println("El RUT no debe contener letras o signos");
+                    System.exit(1);
+                }
+
             }
 
         }
