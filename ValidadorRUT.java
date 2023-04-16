@@ -12,12 +12,11 @@ public class ValidadorRUT {
 
     private static String digitoVerificador(int resta) {
         String digito="";
-        int resultado=0;
-        if(11-resta==10){
+        int resultado= (11-resta);
+        if(resultado==10){
             digito="k";
-        } else if (11-resta==11) {
+        } else if (resultado==11) {
             digito="0";
-
         } else{
             digito+=resultado;
         }
@@ -27,7 +26,7 @@ public class ValidadorRUT {
 
     private static int multiplicarCadena(String rutInvertido) {
         int suma=0;
-        int digito=0;
+        int digito;
         for (int i = 0; i < rutInvertido.length(); i++) {
             if (i <6 ) {
                 try {
