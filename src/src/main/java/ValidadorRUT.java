@@ -1,5 +1,3 @@
-package org.example;
-
 import java.util.Scanner;
 public class ValidadorRUT {
     public static void main(String[] args) {
@@ -12,7 +10,7 @@ public class ValidadorRUT {
 
     }
 
-    private static String digitoVerificador(int resta) {
+    public static String digitoVerificador(int resta) {
         String digito="";
         int resultado= (11-resta);
         if(resultado==10){
@@ -26,7 +24,7 @@ public class ValidadorRUT {
         return digito;
     }
 
-    private static int multiplicarCadena(String rutInvertido) {
+    public static int multiplicarCadena(String rutInvertido) {
         int suma=0;
         int digito;
         for (int i = 0; i < rutInvertido.length(); i++) {
@@ -50,9 +48,7 @@ public class ValidadorRUT {
             }
 
         }
-        System.out.println(suma);
-        int resultado1= ((int)suma/11)*11;
-        System.out.println(resultado1);
+        int resultado1= (suma/11)*11;
         int resta= Math.abs(suma-resultado1);
         return resta;
     }
@@ -66,15 +62,9 @@ public class ValidadorRUT {
     }
 
     public static String ingresoRUT() {
-        String rut="";
         Scanner teclado = new Scanner(System.in);
         System.out.println("Ingrese el rut sin digito verificador y sin puntos");
-        while ( 7> rut.length() || rut.length() > 8) {
-            rut= teclado.next();
-            if (rut.length()<7||rut.length()>8){
-                System.out.println("Ingrese un rut valido");
-            }
-        }
+        String rut= teclado.next();
         return rut;
     }
 }
