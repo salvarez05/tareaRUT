@@ -7,6 +7,7 @@ public class ValidadorRUT {
         String digito=digitoVerificador(resta);
 
         System.out.println("El digito verificador es: "+digito);
+        System.out.println("el rut es: "+rut+ "-"+digito);
 
     }
 
@@ -26,7 +27,7 @@ public class ValidadorRUT {
 
     public static int multiplicarCadena(String rutInvertido) {
         int suma=0;
-        int digito;
+        int digito=0;
         for (int i = 0; i < rutInvertido.length(); i++) {
             if (i <6 ) {
                 try {
@@ -42,7 +43,7 @@ public class ValidadorRUT {
                     suma=suma +digito;
                 }catch (NumberFormatException e){
                     System.out.println("El RUT no debe contener letras o signos");
-                    System.exit(1);
+                   System.exit(1);
                 }
 
             }
@@ -62,9 +63,10 @@ public class ValidadorRUT {
     }
 
     public static String ingresoRUT() {
+        String rut ="";
         Scanner teclado = new Scanner(System.in);
         System.out.println("Ingrese el rut sin digito verificador y sin puntos");
-        String rut= teclado.next();
+        rut= teclado.next();
         return rut;
     }
 }
